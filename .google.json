@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "carteirada-do-bem",
+  "private_key_id": "59805af257722145ffa6fa289a6e42ac1154cb22",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCvpmxflmhJcG9N\ngTLXteZasujBO80ksGczzSiyQR9OClicrvC1NRYthRpS4HCMIh9Ywj16qfGMqoWA\nL5TckEM4TSu0s9ZEn+dZL7sw7cE8+HX20zPAlTQhkUL0YYXRd6lCj9BtUBkNNVHF\n8mOZUi4wgxKlAWktuNIL7MLziy8jKjGdwAgZmrYagu/OWL/YFnDWyjLtiWFljKme\nSG9rY9kmL5RZvihpNbRTDKsUnin1sNqTcfjgUHloUZEkT2F/kGLI4TKcTzV6gKa7\nKaYnd/v4LWd9FZ4yGl4o4rZshw2yHq3wrOq1ZPpqERaKArR+Sq2AZOnswFH9fyrr\nnkr0CQ8vAgMBAAECggEADGF5pnjIKKA3m2OHVucOZPqfwO10wnV6QMKt1kRHombE\nsJgwHt9IDRtVq91mcXb/DwpZ7px6vZFQNnHXV0vTDe16lPkcGdtl7izMHMdiMhvK\nDNGXbNqkQXCnIulnPXvmvuqHvjzBsOM/CVA4rv6FtoupzV5x46dXi6ZuzPkH8IpG\nuEd2CJ7nyEV/HfLDCeqGUo7C09h+g8cIpFEq9Rv14ZZMMPfwvW2WmXzvTBvIrBbX\nxLkdjJdvpm+PPkKQgJWPTIeY5cx01fqG12JD5MvRPYGsjHiMvEe2AjpF29VEaXqI\n5kqn95xlYTn4GuyXI8TxMOvTQ1G0qjFSbc9hRHcByQKBgQDanesBzHMYyhS2Z2a7\n1WFuGPiDdBfoPZLc9Gg6u3/BcpL0HVvtU5/l9RsLQMoDeeqASYMR/7tG06WrIYPy\nHpzoxqIDdjkJ3GPn01C8LdHcfUt1iEH4Tho/RJMCe9YUIrbAeGJoEtgpVMeXvUS/\n0/L/bBwcSoSvlUsXHVYa4g+ZkwKBgQDNr5wD0z+kztucHGoNgUYVPyZo9abEDkaK\nt+VpODERwKiTSVVP8hDgvU/CSMSq38bNzg6nEtkgkNYDGsHWtCck5zsD46z5ISVP\n86gY2xXEV9GMnwiVV00xFWV/7f2xkxmLgsGq9CZ1mN1J/e0XU4qlHr8ZsW4wIPVM\nU0ZSSHgFdQKBgQCJ0wdG0gM5/KTEPjopbyQGih2amkU8OB1vyXIwnOa1Kat11VCQ\nNalYC4eqN4VkXac2i6HjZgtGYsZONkn+Cci4hAm+Dvl0uwoNLE745BYrYJ6DEY0t\nouevPWdFKJdViHEYtIytujunCvjuM/e0zEWlPB4Yw+4U2BVIFEmllyFomwKBgQCf\nArjhOCoGliiu2kSepibw+/4MvIQtI0Ajs6E2I8vDhqaMHvBGOsQTiicj8q+fzhna\nNwea3/Zdt7rLcZ8TBfkRDXXRPu0VOCupUJvOg2ijfqSwSq4PDgvN+1WZffpXknn4\nIaDpMZCd7wx8TENDekE//7ILAeFGceRRGjvOFto6lQKBgQDEIFsCM8DE/E8+sZOb\nOXNWk+DbYe4wk2a1Bu3hx7BJiCr+hYX4k8vSMRSsNbl6dCG88n+L58B3NSl+ya1S\nT+QFi6FH3rmP4TtkHstey+Qa2cxWSOqIMBqu0NMHZiMxlZ8xa2OneBY/kw1MHxij\nG0bVI5bKnLFbT1vK7E5AvqvnJg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "carteirada-do-bem-spreadsheet@carteirada-do-bem.iam.gserviceaccount.com",
+  "client_id": "101146809032010290135",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/carteirada-do-bem-spreadsheet%40carteirada-do-bem.iam.gserviceaccount.com"
+}
