@@ -129,7 +129,7 @@
                                     <div class="row bg-warning row-form">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Descrição</label>
+                                                <label>Descrição (em <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">markdown</a>)</label>
                                                 <textarea type="text" rows="8" class="form-control" v-model="laws[currentLaw].descricao"></textarea>
                                             </div>
                                         </div>
@@ -145,7 +145,7 @@
                                     <div class="row bg-danger row-form">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Punição</label>
+                                                <label>Punição (em <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">markdown</a>)</label>
                                                 <textarea type="text" rows="8" class="form-control" v-model="laws[currentLaw].punicao"></textarea>
                                             </div>
                                         </div>
@@ -161,7 +161,7 @@
                                     <div class="row bg-warning row-form">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Multa (multa_texto)</label>
+                                                <label>Multa (em <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">markdown</a>)</label>
                                                 <textarea type="text" rows="8" class="form-control" v-model="laws[currentLaw].multa_texto"></textarea>
                                             </div>
                                         </div>
@@ -177,7 +177,7 @@
                                     <div class="row bg-danger row-form">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>HTML</label>
+                                                <label>HTML (em <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">markdown</a>)</label>
                                                 <textarea type="text" rows="30" class="form-control" v-model="laws[currentLaw].html"></textarea>
                                             </div>
                                         </div>

@@ -73,7 +73,7 @@ if (document.getElementById(appName = 'vue-laws')) {
 
             __markdown2Html(text) {
                 if (typeof text == 'string' && text.length > 0) {
-                    return markdown.toHTML(text);
+                    return markdown.render(text);
                 }
 
                 return '';
