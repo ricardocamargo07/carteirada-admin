@@ -18,7 +18,7 @@ class Users extends Repository
         $user->is_admin = true;
 
         $user->save();
-g
+
         return $user;
     }
 }
