@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -21,6 +22,14 @@ class Handler extends ExceptionHandler
         \Illuminate\Session\TokenMismatchException::class,
         \Illuminate\Validation\ValidationException::class,
     ];
+
+    private function handleException($exception)
+    {
+        if ($exception instanceof HttpException && $exception->getStatusCode() == 403) {
+
+            return response(view('errors.403'));
+        }
+    }
 
     /**
      * Report or log an exception.
@@ -44,6 +53,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($response = $this->handleException($exception)) {
+            return $response;
+        }
+
         return parent::render($request, $exception);
     }
 

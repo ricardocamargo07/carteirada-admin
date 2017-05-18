@@ -16,6 +16,6 @@ Route::group(['prefix' => '/home', 'middleware' => 'auth'], function () {
     Route::get('/', 'HomeController@index')->name('home');
 });
 
-Route::group(['prefix' => '/laws', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => '/laws', 'middleware' => ['auth','admin']], function () {
     Route::get('/', 'Laws@index')->name('laws.index');
 });

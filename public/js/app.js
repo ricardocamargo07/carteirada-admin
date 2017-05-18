@@ -827,11 +827,7 @@ if (document.getElementById(appName = 'vue-laws')) {
                 });
             },
             __selectLaw: function __selectLaw(law) {
-                console.log(law); // shows the law in the console
-
                 this.currentLaw = law;
-
-                console.log(this.currentlaw);
             },
             __markdown2Html: function __markdown2Html(text) {
                 if (typeof text == 'string' && text.length > 0) {
@@ -870,8 +866,6 @@ if (document.getElementById(appName = 'vue-laws')) {
                 this.laws.push(law);
 
                 this.currentLaw = this.laws.length - 1;
-
-                console.log(law);
             }
         },
 
