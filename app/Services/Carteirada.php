@@ -2,8 +2,43 @@
 
 namespace App\Services;
 
+use App\Data\Models\Law;
+use League\HTMLToMarkdown\HtmlConverter;
+
 class Carteirada
 {
+    private function convertHtml2Markdown($string)
+    {
+        $converter = new HtmlConverter();
+
+        $string = $converter->convert($string);
+
+        $string = str_replace('<div class="separator"></div>',"\n\r*****\n\r", $string);
+
+        return $string;
+    }
+
+    private function convertLawHtmlToMarkdown($model)
+    {
+
+        $model->html = $this->convertHtml2Markdown($model->html);
+        $model->descricao = $this->convertHtml2Markdown($model->descricao);
+        $model->multa_texto = $this->convertHtml2Markdown($model->multa_texto);
+        $model->punicao = $this->convertHtml2Markdown($model->punicao);
+    }
+
+    private function extractTabbedColumns($line)
+    {
+        $line = str_replace("\r\n", '', $line);
+
+        return explode("\t", $line);
+    }
+
+    private function getCsvFilename()
+    {
+        return base_path() . '/leis-carteirada-todas.tsv';
+    }
+
     public function getJsPath()
     {
         return app_path() . '/../../mobile/www/assets/js';
@@ -12,14 +47,14 @@ class Carteirada
     /**
      * @return string
      */
-    private function getFileName()
+    private function getAppJsonFileName()
     {
         return $this->getJsPath().'/leis.js';
     }
 
     public function getJson()
     {
-        $file = file_get_contents($this->getFileName());
+        $file = file_get_contents($this->getAppJsonFileName());
 
         $file = str_replace("\n", " ", $file);
         $file = str_replace("\r", " ", $file);
@@ -69,5 +104,40 @@ class Carteirada
         }
 
         file_put_contents($this->getJsPath().'/leis.csv', $lines);
+    }
+
+    public function importCsv($command = null)
+    {
+        $lines = file($this->getCsvFilename());
+
+        $columns = $this->extractTabbedColumns($lines[0]);
+
+        unset($lines[0]);
+        unset($lines[1]);
+
+        Law::truncate();
+
+        foreach ($lines as $row => $line) {
+            $data = $this->extractTabbedColumns($line);
+
+            $model = new Law();
+
+            foreach ($data as $key => $info) {
+                $model->{$columns[$key]} = $data[$key];
+            }
+
+            $this->convertLawHtmlToMarkdown($model);
+
+            $this->info($command, "{$row} - {$model->numero}/{$model->ano} - {$model->nome_lei}");
+
+            $model->save();
+        }
+    }
+
+    private function info($command, $string)
+    {
+        if (! is_null($command)) {
+            $command->info($string);
+        }
     }
 }

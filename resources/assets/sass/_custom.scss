@@ -1,0 +1,22 @@
+.scrollable {
+  max-height: 300px;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+tr.clickable {
+  cursor: pointer;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #a6d3ff;
+}
+
+.row-form {
+  padding-top: 10px;
+}
+
+
+.add-margin {
+  margin: 15px;
+}

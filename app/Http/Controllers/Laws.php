@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Google\Spreadsheet;
-
 class Laws extends Controller
 {
     /**
@@ -13,8 +11,6 @@ class Laws extends Controller
      */
     public function index()
     {
-        $spreadsheet = app(Spreadsheet::class);
-
         return view('laws.index');
     }
 }
