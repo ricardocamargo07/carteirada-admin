@@ -38,4 +38,9 @@ class Laws extends Controller
     {
         $this->lawsRepository->update($law_id, $this->request->all());
     }
+
+    public function create()
+    {
+        $this->lawsRepository->create($this->request->all());
+    }
 }

@@ -13,6 +13,10 @@
 
                             <div class="col-md-10">
                                 <div class="text-right">
+                                    <div class="btn btn-success" @click="__createLaw()">
+                                        Nova lei
+                                    </div>
+                                    &nbsp;
                                     Filtrar <input type="text" v-model="filter">
                                 </div>
                             </div>

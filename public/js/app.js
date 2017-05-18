@@ -814,7 +814,7 @@ if (document.getElementById(appName = 'vue-laws')) {
 
         methods: {
             cloneOriginal: function cloneOriginal() {
-                this.lawsOriginal = JSON.parse(JSON.stringify(this.laws));
+                this.lawsOriginal = clone(this.laws);
             },
 
             __loadLaws: function __loadLaws() {
@@ -831,13 +831,14 @@ if (document.getElementById(appName = 'vue-laws')) {
 
                 this.currentLaw = law;
 
-                // this.$set('currentLaw', law);
-                // this.$set(this, 'currentlaw', law)
-
                 console.log(this.currentlaw);
             },
             __markdown2Html: function __markdown2Html(text) {
-                return markdown.toHTML(text);
+                if (typeof text == 'string' && text.length > 0) {
+                    return markdown.toHTML(text);
+                }
+
+                return '';
             },
             __saveCurrent: function __saveCurrent() {
                 this.saving = true;
@@ -846,11 +847,31 @@ if (document.getElementById(appName = 'vue-laws')) {
                 axios.post('/api/laws/' + this.laws[this.currentLaw].id, this.laws[this.currentLaw]).then(function () {
                     this.saving = false;
 
+                    vue.__loadLaws();
+
                     vue.cloneOriginal();
                 });
             },
             __unchanged: function __unchanged() {
                 return JSON.stringify(this.laws[this.currentLaw]) === JSON.stringify(this.lawsOriginal[this.currentLaw]);
+            },
+            __createLaw: function __createLaw() {
+                var law = clone(this.laws[0]);
+
+                for (var prop in law) {
+                    if (law.hasOwnProperty(prop)) {
+                        law[prop] = '';
+                    }
+                }
+
+                law['new'] = true;
+                law['uuid'] = uuid();
+
+                this.laws.push(law);
+
+                this.currentLaw = this.laws.length - 1;
+
+                console.log(law);
             }
         },
 
@@ -1827,6 +1848,18 @@ window.unaccent = function (inStr) {
   return inStr.replace(/([àáâãäå])|([ç])|([èéêë])|([ìíîï])|([ñ])|([òóôõöø])|([ß])|([ùúûü])|([ÿ])|([æ])/g, function (str, a, c, e, i, n, o, s, u, y, ae) {
     if (a) return 'a';else if (c) return 'c';else if (e) return 'e';else if (i) return 'i';else if (n) return 'n';else if (o) return 'o';else if (s) return 's';else if (u) return 'u';else if (y) return 'y';else if (ae) return 'ae';
   });
+};
+
+window.uuid = function () {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  }
+
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+};
+
+window.clone = function (obj) {
+  return JSON.parse(JSON.stringify(obj));
 };
 
 /***/ }),

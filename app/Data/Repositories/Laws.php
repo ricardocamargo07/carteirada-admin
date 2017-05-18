@@ -18,6 +18,13 @@ class Laws extends Repository
         $law->fill($input);
 
         $law->save();
+
+        return $law;
+    }
+
+    public function create($input)
+    {
+        return Law::create($input);
     }
 
     public function all()

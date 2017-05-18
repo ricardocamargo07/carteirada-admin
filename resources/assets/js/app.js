@@ -53,7 +53,7 @@ if (document.getElementById(appName = 'vue-laws')) {
 
         methods: {
             cloneOriginal: function () {
-                this.lawsOriginal = JSON.parse(JSON.stringify(this.laws));
+                this.lawsOriginal = clone(this.laws);
             },
 
             __loadLaws() {
@@ -72,14 +72,15 @@ if (document.getElementById(appName = 'vue-laws')) {
 
                 this.currentLaw = law;
 
-                // this.$set('currentLaw', law);
-                // this.$set(this, 'currentlaw', law)
-
                 console.log(this.currentlaw);
             },
 
             __markdown2Html(text) {
-                return markdown.toHTML(text);
+                if (typeof text == 'string' && text.length > 0) {
+                    return markdown.toHTML(text);
+                }
+
+                return '';
             },
 
             __saveCurrent() {
@@ -92,6 +93,8 @@ if (document.getElementById(appName = 'vue-laws')) {
                 ).then(function () {
                     this.saving = false;
 
+                    vue.__loadLaws();
+
                     vue.cloneOriginal();
                 })
             },
@@ -99,6 +102,25 @@ if (document.getElementById(appName = 'vue-laws')) {
             __unchanged() {
                 return JSON.stringify(this.laws[this.currentLaw]) === JSON.stringify(this.lawsOriginal[this.currentLaw]);
             },
+
+            __createLaw() {
+                var law = clone(this.laws[0]);
+
+                for (var prop in law) {
+                    if (law.hasOwnProperty(prop)) {
+                        law[prop] = '';
+                    }
+                }
+
+                law['new'] = true;
+                law['uuid'] = uuid();
+
+                this.laws.push(law);
+
+                this.currentLaw = this.laws.length-1;
+
+                console.log(law);
+            }
         },
 
         mounted() {
