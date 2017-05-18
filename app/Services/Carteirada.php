@@ -31,7 +31,13 @@ class Carteirada
     {
         $line = str_replace("\r\n", '', $line);
 
-        return explode("\t", $line);
+        $columns = explode("\t", $line);
+
+        foreach ($columns as $key => $column) {
+            $columns[$key] = trim($column);
+        }
+
+        return $columns;
     }
 
     private function getCsvFilename()
