@@ -58,39 +58,49 @@
                             <div class="col-md-12">
                                 <form @submit.prevent>
                                     <div class="row bg-danger row-form">
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Status</label>
-                                                <input type="text" class="form-control" v-model="laws[currentLaw].status">
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>Status</label>
+                                                            <input type="text" class="form-control" v-model="laws[currentLaw].status">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>Número</label>
+                                                            <input type="text" class="form-control" v-model="laws[currentLaw].numero">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>Ano</label>
+                                                            <input type="text" class="form-control" v-model="laws[currentLaw].ano">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>Data da Lei</label>
+                                                            <input type="text" class="form-control" v-model="laws[currentLaw].data_lei">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label>Link</label>
+                                                            <input type="text" class="form-control" v-model="laws[currentLaw].link">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Número</label>
-                                                <input type="text" class="form-control" v-model="laws[currentLaw].numero">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Ano</label>
-                                                <input type="text" class="form-control" v-model="laws[currentLaw].ano">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Data da Lei</label>
-                                                <input type="text" class="form-control" v-model="laws[currentLaw].data_lei">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Link</label>
-                                                <input type="text" class="form-control" v-model="laws[currentLaw].link">
-                                            </div>
+                                        <div class="col-md-2">
+                                            <img :src="__getCurrentIconUrl()" alt="" class="img-responsive law-icon">
                                         </div>
                                     </div>
 
