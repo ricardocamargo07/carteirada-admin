@@ -49,6 +49,8 @@ if (document.getElementById(appName = 'vue-laws')) {
             lawsOriginal: [],
             currentLaw: -1,
             filter: '',
+            orderBy: 'numero',
+            orderType: 'asc',
         },
 
         methods: {
@@ -68,14 +70,16 @@ if (document.getElementById(appName = 'vue-laws')) {
             },
 
             __selectLaw(law) {
-                law = this.__findLawById(this._filteredLaws[law].id);
-                console.log(law);
-                this.currentLaw = law;
+                this.currentLaw = this.__findLawById(this._filteredLaws[law].id);
             },
 
-            __findLawById(id) {
-                for (i = 0; i < this.laws.length; i++) {
-                    if (this.laws[i].id == id) {
+            __findLawById(id, laws) {
+                if (typeof laws == 'undefined') {
+                    laws = this.laws;
+                }
+
+                for (var i = 0; i < laws.length; i++) {
+                    if (laws[i].id == id) {
                         return i;
                     }
                 }
@@ -111,6 +115,19 @@ if (document.getElementById(appName = 'vue-laws')) {
                 return JSON.stringify(this.laws[this.currentLaw]) === JSON.stringify(this.lawsOriginal[this.currentLaw]);
             },
 
+            __changeOrder: function(field) {
+                if (this.orderBy == field)
+                {
+                    this.orderType = this.orderType == 'asc' ? 'desc' : 'asc';
+
+                    return;
+                }
+
+                this.orderType = 'asc';
+
+                this.orderBy = field;
+            },
+
             __createLaw() {
                 var law = clone(this.laws[0]);
 
@@ -128,8 +145,24 @@ if (document.getElementById(appName = 'vue-laws')) {
                 this.currentLaw = this.laws.length-1;
             },
 
+            __isCurrent(id) {
+                if (this.currentLaw >= 0) {
+                    return this.laws[this.currentLaw].id == id;
+                }
+
+                return false;
+            },
+
             __getCurrentIconUrl() {
                 return 'http://carteiradadobem.antoniocarlosribeiro.com/assets/images/leis/lei-'+this.laws[this.currentLaw].numero+'-'+this.laws[this.currentLaw].ano+'.png';
+            },
+
+            __getArrowClass() {
+                if (this.orderType == 'asc') {
+                    return 'fa-arrow-down';
+                }
+
+                return 'fa-arrow-up';
             },
         },
 
@@ -139,10 +172,6 @@ if (document.getElementById(appName = 'vue-laws')) {
 
         computed: {
             _filteredLaws() {
-                if (this.filter.trim() == '') {
-                    return this.laws;
-                }
-
                 var filter = unaccent(this.filter.trim());
 
                 var split = filter.split(' ');
@@ -152,7 +181,7 @@ if (document.getElementById(appName = 'vue-laws')) {
                     filter = '(?=.*'+split.join(')(?=.*')+')';
                 }
 
-                return _.filter(this.laws, function(item) {
+                var filtered = _.filter(this.laws, function(item) {
                     for (var key in item) {
                         found = false;
 
@@ -163,7 +192,29 @@ if (document.getElementById(appName = 'vue-laws')) {
 
                     return false;
                 });
-            }
+
+                var orderBy = this.orderBy;
+
+                var orderType = this.orderType;
+
+                var ordered = _.orderBy(
+                    filtered,
+
+                    function(item) {
+                        return item[orderBy] || '';
+                    },
+
+                    orderType
+                );
+
+                if (ordered.length > 0 && (this.currentLaw < 0 || (! this.__findLawById(this.laws[this.currentLaw].id, ordered)))) {
+                    var id = ordered[0].id;
+
+                    this.currentLaw = this.__findLawById(id);
+                }
+
+                return ordered;
+            },
         }
     });
 }

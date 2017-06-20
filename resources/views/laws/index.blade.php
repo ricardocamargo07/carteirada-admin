@@ -8,7 +8,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-2">
-                                Leis
+                                @{{ _filteredLaws.length }} leis
                             </div>
 
                             <div class="col-md-10">
@@ -29,15 +29,65 @@
                                 <table class="table table-striped table-hover">
                                     <thead>
                                         <tr>
-                                            <th>Número / Ano</th>
-                                            <th>Título (nome_lei)</th>
+                                            <th>
+                                                {{--show arrow here--}}
+                                            </th>
+
+                                            <th @click="__changeOrder('id')">
+                                                #
+
+                                                <div v-show="orderBy == 'id'" class="btn btn-danger btn-xs">
+                                                    <i class="fa" :class="__getArrowClass()"></i>
+                                                </div>
+                                            </th>
+
+                                            <th @click="__changeOrder('numero')">
+                                                Número da Lei
+
+                                                <div v-show="orderBy == 'numero'" class="btn btn-danger btn-xs">
+                                                    <i class="fa" :class="__getArrowClass()"></i>
+                                                </div>
+                                            </th>
+
+                                            <th @click="__changeOrder('ano')">
+                                                Ano
+
+                                                <div v-show="orderBy == 'ano'" class="btn btn-danger btn-xs">
+                                                    <i class="fa" :class="__getArrowClass()"></i>
+                                                </div>
+                                            </th>
+
+                                            <th @click="__changeOrder('nome_lei')">
+                                                Título (nome_lei)
+
+                                                <div v-show="orderBy == 'nome_lei'" class="btn btn-danger btn-xs">
+                                                    <i class="fa" :class="__getArrowClass()"></i>
+                                                </div>
+                                            </th>
+
+                                            <th @click="__changeOrder('updated_at')">
+                                                Atualizada em
+
+                                                <div v-show="orderBy == 'updated_at'" class="btn btn-danger btn-xs">
+                                                    <i class="fa" :class="__getArrowClass()"></i>
+                                                </div>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {{--<tr v-for="law in laws" class="clickable" @click="__selectLaw(law)">--}}
                                         <tr v-for="(law, index) in _filteredLaws" class="clickable" @click="__selectLaw(index)">
-                                            <td>@{{ law.numero }} / @{{ law.ano }}</td>
+                                            <td>
+                                                <div v-show="__isCurrent(law.id)" class="btn btn-danger btn-xs">
+                                                    <i class="fa fa-arrow-right"></i>
+                                                </div>
+                                            </td>
+
+                                            <td>@{{ law.id }}</td>
+                                            <td class="text-right">@{{ law.numero }}</td>
+                                            <td>@{{ law.ano }}</td>
                                             <td>@{{ law.nome_lei }}</td>
+                                            <td>@{{ law.updated_at }}</td>
                                         </tr>
                                     </tbody>
                                 </table>

@@ -11,6 +11,8 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap-sass');
+
+    require("font-awesome-webpack");
 } catch (e) {}
 
 /**
