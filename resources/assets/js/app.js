@@ -68,7 +68,19 @@ if (document.getElementById(appName = 'vue-laws')) {
             },
 
             __selectLaw(law) {
+                law = this.__findLawById(this._filteredLaws[law].id);
+                console.log(law);
                 this.currentLaw = law;
+            },
+
+            __findLawById(id) {
+                for (i = 0; i < this.laws.length; i++) {
+                    if (this.laws[i].id == id) {
+                        return i;
+                    }
+                }
+
+                return null;
             },
 
             __markdown2Html(text) {
