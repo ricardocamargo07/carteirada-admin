@@ -41,7 +41,7 @@
                                                 </div>
                                             </th>
 
-                                            <th @click="__changeOrder('numero')">
+                                            <th @click="__changeOrder('numero')" class="text-right">
                                                 Número da Lei
 
                                                 <div v-show="orderBy == 'numero'" class="btn btn-danger btn-xs">
