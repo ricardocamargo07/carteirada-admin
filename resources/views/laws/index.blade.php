@@ -178,7 +178,7 @@
                                         </div>
 
                                         <div class="col-md-2">
-                                            <img src="http://thinkfuture.com/wp-content/uploads/2013/10/loading_spinner.gif" alt="" class="img-responsive law-icon" v-img="__getCurrentIconUrl()">
+                                            <img src="/img/spinner_azul.gif" alt="" class="img-responsive law-icon" v-img="__getCurrentIconUrl()">
                                         </div>
                                     </div>
 
