@@ -36,6 +36,25 @@ Vue.component(
 
 Vue.component('example', require('./components/Example.vue'));
 
+/*
+ * Directives
+ */
+
+Vue.directive('img', function(element, url) {
+    element.src = '/img/spinner_azul.gif';
+
+    var img = new Image();
+
+    img.src = url.value;
+
+    img.onload = function() {
+        element.src = url.value;
+        $(element)
+            .css('opacity', 0)
+            .animate({ opacity: 1 }, 1000)
+    }.bind(this);
+});
+
 /**
  * App
  */

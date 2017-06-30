@@ -19440,6 +19440,23 @@ Vue.component('passport-personal-access-tokens', __webpack_require__(125));
 
 Vue.component('example', __webpack_require__(122));
 
+/*
+ * Directives
+ */
+
+Vue.directive('img', function (element, url) {
+    element.src = '/img/spinner_azul.gif';
+
+    var img = new Image();
+
+    img.src = url.value;
+
+    img.onload = function () {
+        element.src = url.value;
+        $(element).css('opacity', 0).animate({ opacity: 1 }, 1000);
+    }.bind(this);
+});
+
 /**
  * App
  */
