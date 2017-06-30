@@ -15,6 +15,7 @@ class Law extends Model
         'categoria',
         'numero',
         'ano',
+        'paragrafo',
         'nome_lei',
         'nome',
         'data_lei',
@@ -27,4 +28,29 @@ class Law extends Model
         'imagem_2',
         'obs',
     ];
+
+    protected $appends = ['image_name', 'image_path'];
+
+    private function getImageName()
+    {
+        return
+            'lei-' .
+            trim($this->numero) . '-' .
+            trim($this->ano) . (! is_null($this->paragrafo) ? '-' : '') .
+            trim($this->paragrafo) .
+            '.png'
+        ;
+    }
+
+    public function getImageNameAttribute()
+    {
+        return $this->getImageName();
+    }
+
+    public function getImagePathAttribute()
+    {
+        return
+            'http://carteiradadobem.antoniocarlosribeiro.com/assets/images/leis/'.$this->getImageName()
+        ;
+    }
 }

@@ -19547,7 +19547,7 @@ if (document.getElementById(appName = 'vue-laws')) {
                 return false;
             },
             __getCurrentIconUrl: function __getCurrentIconUrl() {
-                return 'http://carteiradadobem.antoniocarlosribeiro.com/assets/images/leis/lei-' + this.laws[this.currentLaw].numero + '-' + this.laws[this.currentLaw].ano + '.png';
+                return this.laws[this.currentLaw].image_path;
             },
             __getArrowClass: function __getArrowClass() {
                 if (this.orderType == 'asc') {

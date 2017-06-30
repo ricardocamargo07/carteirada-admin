@@ -31,7 +31,7 @@ class Laws extends Controller
      */
     public function all()
     {
-        return $this->lawsRepository->all();
+        return $this->lawsRepository->all()->toArray();
     }
 
     public function post($law_id)

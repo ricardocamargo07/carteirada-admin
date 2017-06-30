@@ -57,6 +57,14 @@
                                                 </div>
                                             </th>
 
+                                            <th @click="__changeOrder('paragrafo')" class="text-right">
+                                                Parágrafo
+
+                                                <div v-show="orderBy == 'paragrafo'" class="btn btn-danger btn-xs">
+                                                    <i class="fa" :class="__getArrowClass()"></i>
+                                                </div>
+                                            </th>
+
                                             <th @click="__changeOrder('nome_lei')">
                                                 Título (nome_lei)
 
@@ -86,6 +94,7 @@
                                             <td>@{{ law.id }}</td>
                                             <td class="text-right">@{{ law.numero }}</td>
                                             <td>@{{ law.ano }}</td>
+                                            <td>@{{ law.paragrafo }}</td>
                                             <td>@{{ law.nome_lei }}</td>
                                             <td>@{{ law.updated_at }}</td>
                                         </tr>
@@ -101,7 +110,19 @@
         <div class="row" v-if="currentLaw >= 0">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Lei @{{ laws[currentLaw].numero }} / @{{ laws[currentLaw].ano }} - @{{ laws[currentLaw].nome_lei }}</div>
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-8">
+                                Lei @{{ laws[currentLaw].numero }} / @{{ laws[currentLaw].ano }} - @{{ laws[currentLaw].nome_lei }}
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="text-right">
+                                    <button type="text" class="btn btn-primary" @click="__saveCurrent()" :disabled="__unchanged()">Salvar esta lei</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="panel-body add-margin">
                         <div class="row">
@@ -118,17 +139,24 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-2">
                                                         <div class="form-group">
                                                             <label>Número</label>
                                                             <input type="text" class="form-control" v-model="laws[currentLaw].numero">
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-2">
                                                         <div class="form-group">
                                                             <label>Ano</label>
                                                             <input type="text" class="form-control" v-model="laws[currentLaw].ano">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <div class="form-group">
+                                                            <label>Parágrafo</label>
+                                                            <input type="text" class="form-control" v-model="laws[currentLaw].paragrafo">
                                                         </div>
                                                     </div>
 
