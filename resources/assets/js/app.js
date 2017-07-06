@@ -53,6 +53,10 @@ Vue.directive('img', function(element, url) {
             .css('opacity', 0)
             .animate({ opacity: 1 }, 1000)
     }.bind(this);
+
+    img.onerror = function() {
+        element.src = '/img/no-image.png';
+    }.bind(this);
 });
 
 /**
