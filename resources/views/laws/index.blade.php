@@ -13,11 +13,27 @@
 
                             <div class="col-md-10">
                                 <div class="text-right">
-                                    <div class="btn btn-success" @click="__createLaw()">
-                                        Nova lei
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="btn btn-success" @click="__createLaw()">
+                                                Nova lei
+                                            </div>
+                                        &nbsp;</div>
+
+                                        <div class="col-md-8 pull-right">
+                                            <div class="input-group">
+                                                <span class="input-group-addon" :class="filter ? 'danger' : ''">
+                                                    @{{ filter ? 'Filtrado' : 'Filtrar' }}
+                                                </span>
+
+                                                <input type="text" name="filter" v-model="filter" class="form-control">
+
+                                                <span class="input-group-addon" :class="filter ? 'danger pointer' : ''" @click="__clearFilter()">
+                                                    <i :class="filter ? 'fa fa-times' : 'fa fa-search'"></i>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    &nbsp;
-                                    Filtrar <input type="text" v-model="filter">
                                 </div>
                             </div>
                         </div>

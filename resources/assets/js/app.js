@@ -168,6 +168,10 @@ if (document.getElementById(appName = 'vue-laws')) {
                 this.currentLaw = this.laws.length-1;
             },
 
+            __clearFilter() {
+                this.filter = '';
+            },
+
             __isCurrent(id) {
                 if (this.currentLaw >= 0) {
                     return this.laws[this.currentLaw].id == id;
@@ -191,6 +195,7 @@ if (document.getElementById(appName = 'vue-laws')) {
 
         mounted() {
             this.__loadLaws();
+            this.__clearFilter();
         },
 
         computed: {
