@@ -57,7 +57,7 @@ class Law extends Model
     private function normalizeParagraphNumber($paragrafo)
     {
         return
-            trim(str_replace('.', '-', str_replace('_', '-', $paragrafo)))
+            trim(str_replace('.', '-', str_replace('_', '-', str_replace(' ', '', $paragrafo))))
         ;
     }
 }
