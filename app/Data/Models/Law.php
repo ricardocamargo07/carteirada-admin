@@ -37,7 +37,7 @@ class Law extends Model
             'lei-' .
             trim($this->numero) . '-' .
             trim($this->ano) . (! is_null($this->paragrafo) ? '-' : '') .
-            trim($this->paragrafo) .
+            $this->normalizeParagraphNumber($this->paragrafo) .
             '.png'
         ;
     }
@@ -51,6 +51,13 @@ class Law extends Model
     {
         return
             'http://carteiradadobem.antoniocarlosribeiro.com/assets/images/leis/'.$this->getImageName()
+        ;
+    }
+
+    private function normalizeParagraphNumber($paragrafo)
+    {
+        return
+            trim(str_replace('.', '-', str_replace('_', '-', $paragrafo)))
         ;
     }
 }
