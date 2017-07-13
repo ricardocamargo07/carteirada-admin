@@ -54,6 +54,14 @@ class Laws extends Controller
 
             $law['punicao'] = $this->markdown->toMarkdown($law['punicao']);
 
+            $law['nomelei'] = $law['nome_lei'];
+
+            $law['dataLei'] = $law['data_lei'];
+
+            $law['multatexto'] = $law['multa_texto'];
+
+            $law['imagem'] = 'assets/images/'.$law['image_name'];
+
             return $law;
         });
     }
