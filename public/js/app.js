@@ -19492,6 +19492,19 @@ if (document.getElementById(appName = 'vue-laws')) {
                     vue.cloneOriginal();
                 });
             },
+            __downloadCode: function __downloadCode() {
+                axios.get('/api/laws/download/code').then(function (response) {
+                    var blob = new Blob([response.data], { type: 'application/text' });
+
+                    var link = document.createElement('a');
+
+                    link.href = window.URL.createObjectURL(blob);
+
+                    link.download = 'carteirada-json.js';
+
+                    link.click();
+                });
+            },
             __selectLaw: function __selectLaw(law) {
                 this.currentLaw = this.__findLawById(this._filteredLaws[law].id);
             },

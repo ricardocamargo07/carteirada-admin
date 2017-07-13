@@ -14,7 +14,13 @@
                             <div class="col-md-10">
                                 <div class="text-right">
                                     <div class="row">
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
+                                            @if (is_super_admin())
+                                                <div class="btn btn-warning" @click="__downloadCode()">
+                                                    Get Code
+                                                </div>
+                                            @endif
+
                                             <div class="btn btn-success" @click="__createLaw()">
                                                 Nova lei
                                             </div>

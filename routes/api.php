@@ -11,5 +11,7 @@ Route::group(['prefix' => 'laws', 'middleware' => 'auth:api'], function () {
 
     Route::post('/', 'Api\Laws@create');
 
+    Route::get('/download/code', 'Api\Laws@downloadCode');
+
     Route::post('/{law_id}', 'Api\Laws@post');
 });

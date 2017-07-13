@@ -3,28 +3,28 @@
 namespace App\Services;
 
 use App\Data\Models\Law;
-use League\HTMLToMarkdown\HtmlConverter;
 
 class Carteirada
 {
-    private function convertHtml2Markdown($string)
+    /**
+     * @var Markdown
+     */
+    private $markdown;
+
+    public function __construct(Markdown $markdown)
     {
-        $converter = new HtmlConverter();
-
-        $string = $converter->convert($string);
-
-        $string = str_replace('<div class="separator"></div>',"\n\r*****\n\r", $string);
-
-        return $string;
+        $this->markdown = $markdown;
     }
 
     private function convertLawHtmlToMarkdown($model)
     {
+        $model->html = $this->markdown->toMarkdown($model->html);
 
-        $model->html = $this->convertHtml2Markdown($model->html);
-        $model->descricao = $this->convertHtml2Markdown($model->descricao);
-        $model->multa_texto = $this->convertHtml2Markdown($model->multa_texto);
-        $model->punicao = $this->convertHtml2Markdown($model->punicao);
+        $model->descricao = $this->markdown->toMarkdown($model->descricao);
+
+        $model->multa_texto = $this->markdown->toMarkdown($model->multa_texto);
+
+        $model->punicao = $this->markdown->toMarkdown($model->punicao);
     }
 
     private function extractTabbedColumns($line)
