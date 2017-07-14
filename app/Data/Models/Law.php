@@ -34,12 +34,31 @@ class Law extends Model
     private function getImageName()
     {
         return
-            'lei-' .
+            'lei-'. $this->identificadorLei .'.png'
+        ;
+    }
+
+    public function getIdentificadorLeiAttribute()
+    {
+        return
             trim($this->numero) . '-' .
             trim($this->ano) . (! is_null($this->paragrafo) ? '-' : '') .
-            $this->normalizeParagraphNumber($this->paragrafo) .
-            '.png'
+            $this->normalizeParagraphNumber($this->paragrafo)
         ;
+    }
+
+    public function getIdentificadorLei($addParagraph = true)
+    {
+        $id = trim($this->numero) . '-' . trim($this->ano);
+
+        if ($addParagraph) {
+            $id .=
+                (! is_null($this->paragrafo) ? '-' : '') .
+                $this->normalizeParagraphNumber($this->paragrafo)
+            ;
+        }
+
+        return $id;
     }
 
     public function getImageNameAttribute()
