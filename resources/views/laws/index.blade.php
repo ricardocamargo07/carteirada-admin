@@ -200,7 +200,21 @@
                                         </div>
 
                                         <div class="col-md-2">
-                                            <img src="/img/spinner_azul.gif" alt="" class="img-responsive law-icon" v-img="__getCurrentIconUrl()">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <img src="/img/spinner_azul.gif" alt="" class="img-responsive law-icon" v-img="__getCurrentIconUrl()">
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" v-model="laws[currentLaw].apito"> <strong>Mostrar apito</strong>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 

@@ -27,6 +27,7 @@ class Law extends Model
         'imagem_1',
         'imagem_2',
         'obs',
+        'apito',
     ];
 
     protected $appends = ['image_name', 'image_path'];
