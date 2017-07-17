@@ -78,11 +78,11 @@ class Laws extends Controller
 
         foreach ($data as $key => $row) {
             foreach (explode('/', $row['categoria']) as $category) {
-                $category = trim(mb_strtolower($category));
+                $row->categoria = Str::title(trim(mb_strtolower($category)));
 
-                $row['categoria'] = Str::title($category);
+                $row->categoriaslug = str_slug($row->categoria);
 
-                $row['categoriaslug'] = str_slug($row['categoria']);
+                $row->identifier = $row->id . '-' . $row->categoriaslug;
 
                 $result[] = $row->toArray();
             }
