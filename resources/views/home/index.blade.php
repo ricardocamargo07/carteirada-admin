@@ -64,7 +64,7 @@
                                         <div class="panel-body" :class="'item' + (key % 2 == 0 ? '1' : '2')" v-for="(law, key) in __lawsOnCategory(category.id)">
                                             <div :class="category.id">
                                                 <div class="item">
-                                                    <a href="#" @click="__selectLaw(law.id)">@{{ law.nome }}</a>
+                                                    <a href="#" @click="__selectLaw(law.id)">@{{ law.nomelei }}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -97,7 +97,7 @@
                         <div v-if="_found" class="list-categorias-result-leis">
                             <div class="row" :class="law.categoriaslug" v-for="law in __searchItems()">
                                 <div :class="'item item' + law.id + ' bg-' + law.categoriaslug">
-                                    <a href="#" @click="__selectLaw(law.id)">@{{ law.nome }}</a>
+                                    <a href="#" @click="__selectLaw(law.id)">@{{ law.nomelei }}</a>
                                     <div class="clear"></div>
                                 </div>
                             </div>
