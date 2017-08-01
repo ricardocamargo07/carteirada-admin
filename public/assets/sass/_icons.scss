@@ -1,0 +1,48 @@
+/* ICONS */
+
+[class^="icon-"],
+[class*=" icon-"] {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  //vertical-align: text-top;
+  vertical-align: middle;
+  background-image: url("../images/sprite.png");
+  background-position: 14px 14px;
+  background-repeat: no-repeat;
+  margin-top: 1px;
+  
+}
+
+
+.icon-accord {
+    width: 90px;
+    height: 90px;
+}
+.icon-lazer{
+    background-position: 0px 0px; // left top
+}
+
+.icon-servicos{
+    background-position: -85px 0px; // left top
+}
+
+.icon-transporte{
+    background-position: 0px -95px; // left top
+}
+
+.icon-saude{
+    background-position: -185px 30px; // left top
+}
+
+.icon-compras{
+    background-position: -85px -95px; // left top
+}
+
+
+.icon-bt-conheca{
+    float: left;
+    background-position: -297px -81px; // left top
+}

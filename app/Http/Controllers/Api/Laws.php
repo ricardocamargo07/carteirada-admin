@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Cache;
 use Illuminate\Support\Str;
 use App\Services\Markdown;
 use Illuminate\Http\Request;
@@ -42,6 +43,13 @@ class Laws extends Controller
     public function all()
     {
         return $this->lawsRepository->all()->toArray();
+    }
+
+    private function getCachedLaws()
+    {
+        return Cache::remember('laws-json', 10, function () {
+            return $this->getFormattedLaws();
+        });
     }
 
     private function getFormattedLaws()
@@ -105,11 +113,20 @@ class Laws extends Controller
     {
         $result = [
             'cartao' => [
-                'lei' => $this->getFormattedLaws()
+                'lei' => $this->getCachedLaws()
             ],
         ];
 
         return 'var json = ' . json_encode($result) . ';';
+    }
+
+    public function json()
+    {
+        return response()->json([
+            'cartao' => [
+                'lei' => $this->getCachedLaws()
+            ],
+        ]);
     }
 
     private function toDateName($data_lei)

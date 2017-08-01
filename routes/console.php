@@ -16,3 +16,14 @@ Artisan::command('carteirada:admin {email}', function ($email) {
 
     $this->info($user->name.' is now an administrator');
 })->describe('Make a user an administrator');
+
+Artisan::command('carteirada:clipping {date} {type} {title} {url}', function ($date, $type, $title, $url) {
+    app(\App\Data\Repositories\Clipping::class)->add([
+        'date' => $date,
+        'type' => $type,
+        'title' => $title,
+        'url' => $url,
+    ]);
+
+    $this->info("'$title' was added");
+})->describe('Make a user an administrator');

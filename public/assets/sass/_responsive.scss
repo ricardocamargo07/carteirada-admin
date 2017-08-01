@@ -1,0 +1,86 @@
+@media only screen and (max-width : 768px) { 
+
+    /* HEADER */
+
+    .logo-alerj { margin-top: 0px;}
+    .logo-carteirada
+    {
+        margin-top: -15px;  
+    }
+
+    /* HOME */
+
+    #custom-search-input{
+        .input-group{
+            margin: 0;
+            text-align: center;
+        }
+    }
+    
+    
+
+
+    /* FOOTER - RODAPÉ */
+
+    .baixe-app{
+       
+        .click-download{
+            width: 300px;
+            margin-bottom: 45px;
+            
+            .item{ float: none; margin-right: 0px; margin: 0 auto;}
+
+        }
+    }
+
+    .footer{
+        .news{
+            .container-news{
+               .item{
+                    float: none;
+               }
+               .title{
+                   width: 100%;
+                   text-align: center;
+                   margin-bottom: 10px;
+                }
+                .input
+                {
+                    margin: 0 auto;
+                }
+
+                .bt-cadastrar{
+                    width: 260px;
+                    margin: 0 auto;
+                    margin-top: 10px;
+                }
+            }   
+        }
+
+        .bottom{    
+            padding-bottom: 40px;
+        }
+
+    }
+      
+    
+}
+
+@media only screen and (max-width : 415px) { 
+
+    .page-busca, .page-lei {
+
+        #h{
+            
+            .logo-alerj { display: none;}
+            .logo-carteirada { margin-top: 0px; top: 50px;}        
+        }
+    }
+
+    .compartilhe{
+     
+        max-width: 100%;
+    }
+
+
+}

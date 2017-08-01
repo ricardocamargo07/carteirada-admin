@@ -1,0 +1,54 @@
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius:    $radius
+  -ms-border-radius:     $radius
+  border-radius:         $radius
+ 
+
+=inner-width($w) 
+  width: $w - 30px
+
+=font-smoothing($value: on)
+  @if $value == on
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: antialiased
+    text-rendering: optimizeLegibility
+  @else
+    -webkit-font-smoothing: subpixel-antialiased
+
+=nav-circle
+  width: 10px
+  height: 10px
+  -webkit-border-radius: 100%
+  -moz-border-radius:    100%
+  -ms-border-radius:     100%
+  border-radius:         100%
+
+=transition-default($seconds)
+  -webkit-transition: all $seconds ease-in-out
+  -moz-transition: all $seconds ease-in-out
+  transition: all $seconds ease-in-out
+
+=image-rotate($deg)
+  transform: rotate($deg)
+  -ms-transform: rotate($deg)
+  -moz-transform: rotate($deg)
+  -webkit-transform: rotate($deg)
+  -o-transform: rotate($deg)
+
+=transition-fade($alpha)
+  opacity: $alpha
+  -moz-opacity: $alpha
+  filter: alpha(opacity=$alpha)
+
+
+=font-set-ubuntu($color, $size, $transform: none)
+  font-family: $ubuntu
+  
+  @if $transform == none
+    text-transform: $transform
+  @else
+    text-transform: uppercase
+
+  color: $color
+  font-size: $size
