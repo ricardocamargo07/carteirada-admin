@@ -223,6 +223,8 @@
         </noscript>
         <script type="text/javascript" src="/assets/js/placeholders.js"></script>
         <script type="text/javascript" src="/assets/js/af.equal-height.js"></script>
+
+        @include('layouts.partials.analytics')
     </body>
 </html>
 
