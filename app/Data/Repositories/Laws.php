@@ -24,7 +24,9 @@ class Laws extends Repository
 
     public function create($input)
     {
-        return Law::create($input);
+        return Law::create(
+            collect($input)->filter()->toArray()
+        );
     }
 
     public function all()
