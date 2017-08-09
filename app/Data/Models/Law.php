@@ -70,7 +70,7 @@ class Law extends Model
     public function getImagePathAttribute()
     {
         return
-            'http://carteiradadobem.antoniocarlosribeiro.com/assets/images/leis/'.$this->getImageName()
+            config('app.url').'/assets/images/leis/'.$this->getImageName()
         ;
     }
 
