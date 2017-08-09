@@ -7,6 +7,13 @@ use Carbon\Carbon;
 
 class Laws extends Repository
 {
+    public function published()
+    {
+        return $this->all()->reject(function($law) {
+            return ! $law->is_published;
+        });
+    }
+
     public function getModel()
     {
         return Law::class;

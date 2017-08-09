@@ -54,7 +54,7 @@ class Laws extends Controller
 
     private function getFormattedLaws()
     {
-        $data = $this->lawsRepository->all()->map(function($law) {
+        $data = $this->lawsRepository->published()->map(function($law) {
             $law['html'] = $this->markdown->toHtml($law['html']);
 
             $law['descricao'] = $this->markdown->toHtml($law['descricao']);
