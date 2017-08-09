@@ -41724,8 +41724,27 @@ window.debug = function() {
 };
 
 window.unaccent = function (inStr) {
-    return inStr.replace(/([àáâãäå])|([ç])|([èéêë])|([ìíîï])|([ñ])|([òóôõöø])|([ß])|([ùúûü])|([ÿ])|([æ])/g, function(str,a,c,e,i,n,o,s,u,y,ae) { if(a) return 'a'; else if(c) return 'c'; else if(e) return 'e'; else if(i) return 'i'; else if(n) return 'n'; else if(o) return 'o'; else if(s) return 's'; else if(u) return 'u'; else if(y) return 'y'; else if(ae) return 'ae'; });
+    if (typeof inStr == 'string') {
+        return inStr.replace(/([àáâãäå])|([ç])|([èéêë])|([ìíîï])|([ñ])|([òóôõöø])|([ß])|([ùúûü])|([ÿ])|([æ])/g, function(str,a,c,e,i,n,o,s,u,y,ae) { if(a) return 'a'; else if(c) return 'c'; else if(e) return 'e'; else if(i) return 'i'; else if(n) return 'n'; else if(o) return 'o'; else if(s) return 's'; else if(u) return 'u'; else if(y) return 'y'; else if(ae) return 'ae'; });
+    }
+
+    return '';
 };
+
+window.uuid = function() {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
+
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        s4() + '-' + s4() + s4() + s4();
+}
+
+window.clone = function (obj) {
+    return JSON.parse(JSON.stringify(obj));
+}
 
 // var app_debug = true;
 //
@@ -42229,11 +42248,17 @@ if (document.getElementById(appName)) {
                 var vue = this;
 
                 return this.laws.filter(function(law) {
-                    var s1 = unaccent(law.nome).search(new RegExp(unaccent(vue.search), "i")) != -1;
+                    return law.is_published;
+                }).filter(function(law) {
+                    var s1 = unaccent(law.nomelei).search(new RegExp(unaccent(vue.search), "i")) != -1;
 
-                    var s2 = unaccent(law.descricao).search(new RegExp(unaccent(vue.search), "i")) != -1;
+                    var s2 = unaccent(law.nome).search(new RegExp(unaccent(vue.search), "i")) != -1;
 
-                    return s1 || s2;
+                    var s3 = unaccent(law.descricao).search(new RegExp(unaccent(vue.search), "i")) != -1;
+
+                    var s4 = unaccent(law.numero).search(new RegExp(unaccent(vue.search), "i")) != -1;
+
+                    return s1 || s2 || s3 || s4;
                 });
             },
 
@@ -42291,6 +42316,7 @@ if (document.getElementById(appName)) {
 
         mounted() {
             this.selectedLaw = false;
+
             this.__loadLaws();
         },
 

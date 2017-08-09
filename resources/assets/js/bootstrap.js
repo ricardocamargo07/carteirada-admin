@@ -1,4 +1,6 @@
 
+require('./helpers');
+
 window._ = require('lodash');
 
 /**
@@ -54,8 +56,6 @@ window.markdown = require('markdown-it')({
  * Lodash
  */
 
-window._ = require('lodash');
-
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
@@ -71,21 +71,3 @@ window._ = require('lodash');
 //     key: 'your-pusher-key'
 // });
 
-window.unaccent = function (inStr) {
-    return inStr.replace(/([àáâãäå])|([ç])|([èéêë])|([ìíîï])|([ñ])|([òóôõöø])|([ß])|([ùúûü])|([ÿ])|([æ])/g, function(str,a,c,e,i,n,o,s,u,y,ae) { if(a) return 'a'; else if(c) return 'c'; else if(e) return 'e'; else if(i) return 'i'; else if(n) return 'n'; else if(o) return 'o'; else if(s) return 's'; else if(u) return 'u'; else if(y) return 'y'; else if(ae) return 'ae'; });
-};
-
-window.uuid = function() {
-    function s4() {
-        return Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16)
-            .substring(1);
-    }
-
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-            s4() + '-' + s4() + s4() + s4();
-}
-
-window.clone = function (obj) {
-    return JSON.parse(JSON.stringify(obj));
-}

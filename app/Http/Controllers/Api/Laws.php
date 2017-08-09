@@ -137,4 +137,12 @@ class Laws extends Controller
 
         return Str::lower(strftime('%d de %B de %Y', strtotime($data_lei)));
     }
+
+    public function publish()
+    {
+        $this->lawsRepository->publish(
+            $this->request->get('id'),
+            $this->request->get('is_published')
+        );
+    }
 }

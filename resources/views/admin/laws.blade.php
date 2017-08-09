@@ -140,7 +140,14 @@
 
                             <div class="col-md-4">
                                 <div class="text-right">
-                                    <button type="text" class="btn btn-primary" @click="__saveCurrent()" :disabled="__unchanged()">Salvar esta lei</button>
+                                    <button type="text" class="btn" :class="laws[currentLaw].is_published ? 'btn-success' : 'btn-default'" @click="__publishCurrent()">
+                                        <span v-if="laws[currentLaw].is_published">Publicada</span>
+                                        <span v-if="! laws[currentLaw].is_published">Publicar</span>
+                                    </button>
+
+                                    <button type="text" class="btn btn-primary" @click="__saveCurrent()" :disabled="__unchanged()">
+                                        Salvar esta lei
+                                    </button>
                                 </div>
                             </div>
                         </div>

@@ -5,7 +5,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-// require('./bootstrap');
+require('./bootstrap');
 
 window.Vue = require('vue');
 
@@ -146,7 +146,18 @@ if (document.getElementById(appName = 'vue-laws')) {
                     vue.__loadLaws();
 
                     vue.cloneOriginal();
-                })
+                });
+            },
+
+            __publishCurrent() {
+                var vue = this;
+
+                axios.post(
+                    '/api/laws/publish',
+                    this.laws[this.currentLaw]
+                ).then(function () {
+                    vue.__loadLaws();
+                });
             },
 
             __unchanged() {

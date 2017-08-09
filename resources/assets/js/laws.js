@@ -106,11 +106,17 @@ if (document.getElementById(appName)) {
                 var vue = this;
 
                 return this.laws.filter(function(law) {
-                    var s1 = unaccent(law.nome).search(new RegExp(unaccent(vue.search), "i")) != -1;
+                    return law.is_published;
+                }).filter(function(law) {
+                    var s1 = unaccent(law.nomelei).search(new RegExp(unaccent(vue.search), "i")) != -1;
 
-                    var s2 = unaccent(law.descricao).search(new RegExp(unaccent(vue.search), "i")) != -1;
+                    var s2 = unaccent(law.nome).search(new RegExp(unaccent(vue.search), "i")) != -1;
 
-                    return s1 || s2;
+                    var s3 = unaccent(law.descricao).search(new RegExp(unaccent(vue.search), "i")) != -1;
+
+                    var s4 = unaccent(law.numero).search(new RegExp(unaccent(vue.search), "i")) != -1;
+
+                    return s1 || s2 || s3 || s4;
                 });
             },
 
@@ -168,6 +174,7 @@ if (document.getElementById(appName)) {
 
         mounted() {
             this.selectedLaw = false;
+
             this.__loadLaws();
         },
 

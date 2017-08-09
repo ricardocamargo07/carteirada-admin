@@ -3,12 +3,26 @@
 namespace App\Data\Repositories;
 
 use App\Data\Models\Law;
+use Carbon\Carbon;
 
 class Laws extends Repository
 {
     public function getModel()
     {
         return Law::class;
+    }
+
+    public function publish($id, $is_published)
+    {
+        $law = $this->findById($id);
+
+        if ($law->is_published = ! $is_published) {
+            $law->published_at = Carbon::now();
+        }
+
+        $law->save();
+
+        return $law;
     }
 
     public function update($law_id, $input)

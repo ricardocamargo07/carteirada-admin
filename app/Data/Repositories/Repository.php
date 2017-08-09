@@ -10,4 +10,9 @@ abstract class Repository
 
         return $model::all();
     }
+
+    public function findById($id)
+    {
+        return call_user_func([$this->getModel(), 'find'], $id);
+    }
 }
