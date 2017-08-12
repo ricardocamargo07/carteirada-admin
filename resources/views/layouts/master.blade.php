@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml">
+<html xmlns="https://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -12,8 +12,8 @@
         <!-- OG TAGS : FACEBOOK E TWITTER -->
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Carteirada do Bem" />
-        <meta property="og:url" content="http://www.carteiradadobem.com.br/" />
-        <meta property="og:image" content="http://www.carteiradadobem.com.br/assets/images/ShareFacebook_1200x630.jpg" />
+        <meta property="og:url" content="https://www.carteiradadobem.com.br/" />
+        <meta property="og:image" content="https://www.carteiradadobem.com.br/assets/images/ShareFacebook_1200x630.jpg" />
         <meta property="og:description" content="A Carteirada do Bem transforma o dia a dia do cidadão fluminense. Com ela, é mais fácil conhecer seus direitos. E o melhor: é mais fácil fazer seus direitos serem reconhecidos. Não importa quem esteja falando, a lei é igual para todos. E agora você usa seu celular para provar e comprovar isso." />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="#carteiradadobem"/>
@@ -23,8 +23,12 @@
 
         <link rel="stylesheet" type="text/css" href="/assets/css/app.css">
         <link rel="stylesheet" type="text/css" href="/assets/css/adicional.css">
-        <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+        @if (request()->get('client') == 'app')
+            <link rel="stylesheet" href="/css/client-app.css">
+        @endif
 
         <title>Carteirada do Bem</title>
     </head>
@@ -34,11 +38,11 @@
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) return;
                 js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.4";
+                js.src = "https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.4";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));</script>
         <!-- Google + -->
-        <script src="https://apis.google.com/js/platform.js" async defer>
+        <script src="//apis.google.com/js/platform.js" async defer>
             {lang: 'pt-BR'}
         </script>
 
@@ -70,9 +74,9 @@
                         </nav>
                         <div class="side-box">
                             <ul class="socials">
-                                <li><a href="https://instagram.com/instalerj/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="https://www.facebook.com/assembleiaRJ " target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/alerj" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="//instagram.com/instalerj/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="//www.facebook.com/assembleiaRJ " target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="//twitter.com/alerj" target="_blank"><i class="fa fa-twitter"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -101,9 +105,9 @@
                         <h3 class="button-wrapper">Leve o app no seu celular</h3>
                         <hr>
                     </div>
-                    <div class="item float-left" onclick=""><a href="https://itunes.apple.com/br/app/carteirada-do-bem/id1038219840?mt=8" target="_blank"><img src="/assets/images/dowload_appstore.png" alt="Baixe o aplicativo para Iphone"></a></div>
-                    <div class="item float-right" onclick=""><a href="https://play.google.com/store/apps/details?id=com.casadigital.carteirada2&hl=pt_BR" target="_blank"><img src="/assets/images/dowload_googleplay.png" alt="Baixe o aplicativo para Android"></a></div>
-                    {{--<div class="item float-left" onclick=""><a href="https://www.microsoft.com/pt-br/store/apps/carteirada-do-bem/9nblggh6cpgt" target="_blank"><img src="/assets/images/dowload_windowsphone.png" alt="Baixe o aplicativo para Windows Phone"></a></div>--}}
+                    <div class="item float-left" onclick=""><a href="//itunes.apple.com/br/app/carteirada-do-bem/id1038219840?mt=8" target="_blank"><img src="/assets/images/dowload_appstore.png" alt="Baixe o aplicativo para Iphone"></a></div>
+                    <div class="item float-right" onclick=""><a href="//play.google.com/store/apps/details?id=com.casadigital.carteirada2&hl=pt_BR" target="_blank"><img src="/assets/images/dowload_googleplay.png" alt="Baixe o aplicativo para Android"></a></div>
+                    {{--<div class="item float-left" onclick=""><a href="//www.microsoft.com/pt-br/store/apps/carteirada-do-bem/9nblggh6cpgt" target="_blank"><img src="/assets/images/dowload_windowsphone.png" alt="Baixe o aplicativo para Windows Phone"></a></div>--}}
                     <div class="clear"></div>
                 </div>
             </div>
@@ -131,10 +135,10 @@
                                         <div class="col-icon col0">
 
                                             <div class="redes-sociais">
-                                                <a href="https://twitter.com/alerj" target="_blank"><i class="fa fa-twitter"></i></a>
-                                                <a href="https://www.facebook.com/assembleiaRJ " target="_blank"><i class="fa fa-facebook"></i></a>
-                                                <a href="https://plus.google.com/+alerj/posts" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                                <a href="https://instagram.com/instalerj/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                                <a href="//twitter.com/alerj" target="_blank"><i class="fa fa-twitter"></i></a>
+                                                <a href="//www.facebook.com/assembleiaRJ " target="_blank"><i class="fa fa-facebook"></i></a>
+                                                <a href="//plus.google.com/+alerj/posts" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                                <a href="//instagram.com/instalerj/" target="_blank"><i class="fa fa-instagram"></i></a>
                                             </div>
 
                                     <div class="copyright">© ALERJ 2011 - 2015</div>
@@ -194,13 +198,13 @@
                             </div> -->
                             <div class="bottom ">
                                 <div class="container">
-                                    <div class="copyright"><p>© ALERJ 2011 - 2015   |   <a href="http://www.alerj.rj.gov.br/" target="_blank">SITE ALERJ</a>   |   <a href="https://instagram.com/instalerj/" target="_blank">FALE COM A ALERJ</a></p></div>
+                                    <div class="copyright"><p>© ALERJ 2011 - 2015   |   <a href="//www.alerj.rj.gov.br/" target="_blank">SITE ALERJ</a>   |   <a href="//instagram.com/instalerj/" target="_blank">FALE COM A ALERJ</a></p></div>
                                     <p class="separator">_____</p>
                                     <div class="redes-sociais">
                                         <p class="social-icons">
-                                            <a href="https://instagram.com/instalerj/" target="_blank"><i class="fa fa-instagram"></i></a>
-                                            <a href="https://www.facebook.com/assembleiaRJ " target="_blank"><i class="fa fa-facebook"></i></a>
-                                            <a href="https://twitter.com/alerj" target="_blank"><i class="fa fa-twitter"></i></a>
+                                            <a href="//instagram.com/instalerj/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                            <a href="//www.facebook.com/assembleiaRJ " target="_blank"><i class="fa fa-facebook"></i></a>
+                                            <a href="//twitter.com/alerj" target="_blank"><i class="fa fa-twitter"></i></a>
                                         </p>
                                     </div>
                                 </div>
@@ -218,7 +222,7 @@
         <script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
         <script type="text/javascript">twttr.conversion.trackPid('ntm4x', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
         <noscript>
-            <img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=ntm4x&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+            <img height="1" width="1" style="display:none;" alt="" src="//analytics.twitter.com/i/adsct?txn_id=ntm4x&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
             <img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=ntm4x&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
         </noscript>
         <script type="text/javascript" src="/assets/js/placeholders.js"></script>
