@@ -24,6 +24,6 @@ Route::group(['prefix' => '/admin', 'middleware' => ['auth', 'admin']], function
     Route::get('/laws', 'Admin@laws')->name('admin.laws');
 });
 
-Route::group(['prefix' => '/docs', 'middleware' => ['auth', 'admin']], function () {
+Route::group(['prefix' => '/docs'], function () {
     Route::get('/privacidade', 'Docs@privacy')->name('docs.privacy');
 });
