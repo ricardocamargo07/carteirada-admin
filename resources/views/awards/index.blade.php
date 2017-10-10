@@ -7,9 +7,9 @@
                 <h1 class="align-center">Prêmios</h1>
             </div>
             <div class="text-intro clearfix">
-                {{--<div class="col-lg-12">--}}
-                    {{--Eles falaram sobre a Carteirada do Bem. E a gente reuniu tudo aqui para te mostrar.--}}
-                {{--</div>--}}
+                <div class="col-lg-12">
+                    A Carteirada do Bem já ganhou alguns prêmios. Acompanhe aqui as nossas conquistas.
+                </div>
             </div>
         </header><!-- heading -->
 
