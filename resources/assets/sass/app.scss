@@ -1,12 +1,9 @@
-
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+// Old app.css
+@import "../../../public/assets/css/app.css";
+@import "../../../public/assets/css/adicional.css";
 
 // Variables
 @import "variables";
 
 // Custom CSS
 @import "custom";
-
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";

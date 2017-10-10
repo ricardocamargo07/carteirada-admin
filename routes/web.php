@@ -6,6 +6,8 @@ Route::get('/', ['as' => 'home', 'uses' => 'Home@index']);
 
 Route::get('/clipping', ['as' => 'home', 'uses' => 'Clipping@index']);
 
+Route::get('/awards', ['as' => 'home', 'uses' => 'Awards@index']);
+
 Route::group(['prefix' => '/partials'], function () {
     Route::get('/home', ['as' => 'partials.home', 'uses' => 'Home@home']);
 

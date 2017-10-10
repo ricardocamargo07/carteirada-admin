@@ -20,7 +20,7 @@ class Clipping extends Controller
     {
         return
             view('clipping.index')
-            ->with('clipping', $this->repository->all())
-        ;
+                ->with('clipping', $this->repository->all())
+            ;
     }
 }
