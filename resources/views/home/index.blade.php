@@ -122,7 +122,7 @@
                     <div class="clear"></div>
                     <div class="row cabecalho">
                         <div class="col-sm-12 col-xs-12">
-                            <div class="image-top"> <img :src="'assets/images/lei-' + selectedLaw.imagem + '.png'" alt="" id="lei-img-top"></div>
+                            <div class="image-top"> <img :src="selectedLaw.image_file" alt="" id="lei-img-top"></div>
                             <h1 id="lei-nome" v-html="selectedLaw.nome"></h1>
                             <div class="sub-descr" id="sub-descr"><strong>ONDE SE APLICA:</strong> <span v-html="selectedLaw.subcategoria"></span></div>
                             <div class="cat-descr" id="lei-descr" v-html="selectedLaw.descricao"></div>
