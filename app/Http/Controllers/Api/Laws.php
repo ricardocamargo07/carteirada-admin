@@ -71,7 +71,7 @@ class Laws extends Controller
 
             $law['imagem'] = $law['identificadorLei'];
 
-            $law['image_file'] = 'assets/images/'.$law['image_name'];
+            $law['image_file'] = '/assets/images/leis/'.$law['image_name'];
 
             $law['colorheader'] = 'white';
 
