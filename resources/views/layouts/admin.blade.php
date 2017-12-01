@@ -59,6 +59,10 @@
         </nav>
 
         @yield('content')
+
+        <div class="redes-sociais text-center" style="color: #454545; font-size: 1.3rem; margin-bottom: 20px;">
+            @version
+        </div>
     </div>
 
     <!-- Scripts -->

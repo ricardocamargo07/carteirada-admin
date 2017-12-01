@@ -168,13 +168,19 @@
                             <div class="bottom ">
                                 <div class="container">
                                     <div class="copyright"><p>© ALERJ 2011 - 2015   |   <a href="//www.alerj.rj.gov.br/" target="_blank">SITE ALERJ</a>   |   <a href="//instagram.com/instalerj/" target="_blank">FALE COM A ALERJ</a></p></div>
+
                                     <p class="separator">_____</p>
+
                                     <div class="redes-sociais">
                                         <p class="social-icons">
                                             <a href="//instagram.com/instalerj/" target="_blank"><i class="fa fa-instagram"></i></a>
                                             <a href="//www.facebook.com/assembleiaRJ " target="_blank"><i class="fa fa-facebook"></i></a>
                                             <a href="//twitter.com/alerj" target="_blank"><i class="fa fa-twitter"></i></a>
                                         </p>
+                                    </div>
+
+                                    <div class="redes-sociais" style="color: #454545; font-size: 1.3rem;">
+                                        @version
                                     </div>
                                 </div>
                             </div>
