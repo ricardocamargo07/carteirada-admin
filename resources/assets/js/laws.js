@@ -1,3 +1,5 @@
+window.Vue = require('vue');
+
 var appName = 'vue-carteirada';
 
 if (document.getElementById(appName)) {

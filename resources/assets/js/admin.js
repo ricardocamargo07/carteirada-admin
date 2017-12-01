@@ -5,6 +5,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -221,7 +222,10 @@ if (document.getElementById(appName = 'vue-laws')) {
 
         mounted() {
             this.__loadLaws();
+
             this.__clearFilter();
+
+            jQuery('textarea').autogrow();
         },
 
         computed: {

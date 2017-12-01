@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Parsedown;
 use League\HTMLToMarkdown\HtmlConverter;
 use League\CommonMark\CommonMarkConverter;
 
@@ -18,8 +19,13 @@ class Markdown
         return $string;
     }
 
-    public function toHtml($string)
+    public function commonMarkToHtml($string)
     {
         return (new CommonMarkConverter())->convertToHtml($string);
+    }
+
+    public function githubToHtml($string)
+    {
+        return (new Parsedown())->text($string);
     }
 }

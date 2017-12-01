@@ -14,6 +14,10 @@ try {
 
     require('bootstrap-sass');
 
+    require('autogrow');
+
+    window.autosize = require('autosize');
+
     require("font-awesome-webpack");
 } catch (e) {}
 
