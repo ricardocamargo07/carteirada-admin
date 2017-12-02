@@ -55,13 +55,13 @@ class Laws extends Controller
     private function getFormattedLaws()
     {
         $data = $this->lawsRepository->published()->map(function($law) {
-            $law['html'] = $this->markdown->gitHubToHtml($law['html']);
+            $law['html'] = $this->markdown->toHtml($law['html']);
 
-            $law['descricao'] = $this->markdown->gitHubToHtml($law['descricao']);
+            $law['descricao'] = $this->markdown->toHtml($law['descricao']);
 
-            $law['multa_texto'] = $this->markdown->gitHubToHtml($law['multa_texto']);
+            $law['multa_texto'] = $this->markdown->toHtml($law['multa_texto']);
 
-            $law['punicao'] = $this->markdown->gitHubToHtml($law['punicao']);
+            $law['punicao'] = $this->markdown->toHtml($law['punicao']);
 
             $law['nomelei'] = $law['nome_lei'];
 

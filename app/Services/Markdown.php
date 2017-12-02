@@ -28,4 +28,11 @@ class Markdown
     {
         return (new Parsedown())->text($string);
     }
+
+    public function toHtml($markdown)
+    {
+        return $this->commonMarkToHtml(
+            preg_replace("/(~~(.*?)~~)/s", "<del>$2</del>", $markdown)
+        );
+    }
 }
