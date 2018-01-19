@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Google\Spreadsheet;
-
 class Google extends Controller
 {
     /**
