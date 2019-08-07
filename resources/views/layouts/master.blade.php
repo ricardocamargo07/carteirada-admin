@@ -72,7 +72,6 @@
                 <div class="click-download">
                     <div class="destaques-title middle">
                         <h3 class="button-wrapper">Leve o app no seu celular</h3>
-                        <hr>
                     </div>
                     <div class="item float-left" onclick=""><a href="//itunes.apple.com/br/app/carteirada-do-bem/id1038219840?mt=8" target="_blank"><img src="/assets/images/dowload_appstore.png" alt="Baixe o aplicativo para Iphone"></a></div>
                     <div class="item float-right" onclick=""><a href="//play.google.com/store/apps/details?id=com.casadigital.carteirada2&hl=pt_BR" target="_blank"><img src="/assets/images/dowload_googleplay.png" alt="Baixe o aplicativo para Android"></a></div>
@@ -180,7 +179,7 @@
                                     </div>
 
                                     <div class="redes-sociais" style="color: #454545; font-size: 1.3rem;">
-                                        @version
+                                        @xversion
                                     </div>
                                 </div>
                             </div>
