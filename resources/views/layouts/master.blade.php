@@ -1,17 +1,17 @@
 @extends('layouts.html')
 
 @section('body')
-    <script>(function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.4";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-    <!-- Google + -->
-    <script src="//apis.google.com/js/platform.js" async defer>
-        {lang: 'pt-BR'}
-    </script>
+    {{--<script>(function(d, s, id) {--}}
+            {{--var js, fjs = d.getElementsByTagName(s)[0];--}}
+            {{--if (d.getElementById(id)) return;--}}
+            {{--js = d.createElement(s); js.id = id;--}}
+            {{--js.src = "https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.4";--}}
+            {{--fjs.parentNode.insertBefore(js, fjs);--}}
+        {{--}(document, 'script', 'facebook-jssdk'));</script>--}}
+    {{--<!-- Google + -->--}}
+    {{--<script src="//apis.google.com/js/platform.js" async defer>--}}
+        {{--{lang: 'pt-BR'}--}}
+    {{--</script>--}}
 
     <div id="vue-carteirada" :class="(this.search == '') && (! this.selectedLaw) ? 'page-home' : 'page-busca'">
         <div v-cloak>
@@ -179,7 +179,7 @@
                                     </div>
 
                                     <div class="redes-sociais" style="color: #454545; font-size: 1.3rem;">
-                                        @xversion
+                                        @version
                                     </div>
                                 </div>
                             </div>

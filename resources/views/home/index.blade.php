@@ -14,23 +14,23 @@
                     <div class="col-lg-2"></div>
                 </div>
 
-                <div class="container-social">
-                    <div class="facebook-count counter">{{ $shareCount->get_fb() }}</div>
-                    <div class="google-count counter">{{ $shareCount->get_plusones() }}</div>
-                    <div class="clear"></div>
-                </div>
+                {{--<div class="container-social">--}}
+                    {{--<div class="facebook-count counter">{{ $shareCount->get_fb() }}</div>--}}
+                    {{--<div class="google-count counter">{{ $shareCount->get_plusones() }}</div>--}}
+                    {{--<div class="clear"></div>--}}
+                {{--</div>--}}
 
-                <div class="container-social" style="display:none;">
-                    <div class="count tweeter-count">
-                        <div class="fb-like"></div>
-                    </div>
-                    <div class="count facebook-count">
-                        <a href="https://twitter.com/alerj" class="twitter-follow-button" data-show-count="false">Follow @alerj</a>
-                    </div>
-                    <div class="count google-count">
-                        <div class="g-plusone" data-annotation="inline" data-width="300" data-href="https://plus.google.com/+alerj"></div>
-                    </div>
-                </div>
+                {{--<div class="container-social" style="display:none;">--}}
+                    {{--<div class="count tweeter-count">--}}
+                        {{--<div class="fb-like"></div>--}}
+                    {{--</div>--}}
+                    {{--<div class="count facebook-count">--}}
+                        {{--<a href="https://twitter.com/alerj" class="twitter-follow-button" data-show-count="false">Follow @alerj</a>--}}
+                    {{--</div>--}}
+                    {{--<div class="count google-count">--}}
+                        {{--<div class="g-plusone" data-annotation="inline" data-width="300" data-href="https://plus.google.com/+alerj"></div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
             </div>
         </div>
     </header>
@@ -158,5 +158,6 @@
 @stop
 
 @section('page-javascripts')
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    {{--Twitter like e facebook like disabled--}}
+    {{--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>--}}
 @stop
