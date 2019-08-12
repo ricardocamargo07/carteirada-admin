@@ -12,8 +12,7 @@
         "laravel/tinker": "^1.0",
         "league/commonmark": "^0.11",
         "league/html-to-markdown": "^4.4",
-        "pragmarx/version": "^0.1.6",
-        "doctrine/lexer": "1.0.1"
+        "pragmarx/version": "^0.1.6"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.4",
