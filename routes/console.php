@@ -12,9 +12,12 @@ Artisan::command('carteirada:importcsv', function () {
 })->describe('Import CSV file from Google Docs');
 
 Artisan::command('carteirada:admin {email}', function ($email) {
-    $user = app(Users::class)->makeAdmin($email);
+    if($user = app(Users::class)->makeAdmin($email)){
+        $this->info($user->name.' is now an administrator');
+    }else{
+        $this->info('Email '.$email.' could not be found');
+    }
 
-    $this->info($user->name.' is now an administrator');
 })->describe('Make a user an administrator');
 
 Artisan::command('carteirada:clipping {date} {type} {title} {url}', function ($date, $type, $title, $url) {
