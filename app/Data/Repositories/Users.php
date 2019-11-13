@@ -13,12 +13,11 @@ class Users extends Repository
 
     public function makeAdmin($email)
     {
-        $user = $this->findByEmail($email);
+        if($user = $this->findByEmail($email)) {
+            $user->is_admin = true;
 
-        $user->is_admin = true;
-
-        $user->save();
-
+            $user->save();
+        }
         return $user;
     }
 }
