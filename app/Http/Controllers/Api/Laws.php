@@ -47,7 +47,7 @@ class Laws extends Controller
 
     private function getCachedLaws()
     {
-        return Cache::remember('laws-json', 9999, function () {
+        return Cache::remember('laws-json', config('cache.laws'), function () {
             return $this->getFormattedLaws();
         });
     }

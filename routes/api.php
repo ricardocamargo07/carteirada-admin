@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::get('/user', function (Request $request) {
     return $request->user();
 });
 
@@ -10,7 +10,7 @@ Route::group(['prefix' => 'laws'], function () {
     Route::get('/json', 'Api\Laws@json');
 });
 
-Route::group(['prefix' => 'laws', 'middleware' => 'auth:api'], function () {
+Route::group(['prefix' => 'laws'], function () {
     Route::get('/', 'Api\Laws@all');
 
     Route::post('/', 'Api\Laws@create');
